@@ -1,0 +1,16 @@
+server:
+  port: 8000
+
+spring:
+  application:
+  name: category
+  datasource:
+    url: jdbc:postgresql://localhost:5432/salon
+    username: postgres
+    password: kimani89
+  hibernate:
+    jpa:
+
+
+
+
