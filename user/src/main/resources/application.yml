@@ -1,0 +1,27 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: user
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/salon
+    username: postgres
+    password: kimani89
+  driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl_auto: update
+    show_sql: true
+    database: postgresql
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8000/eureka/

@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
-@Entity
 public class UserUpdateRequest {
     private String username;
     private String fullName;
