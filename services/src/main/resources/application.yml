@@ -1,0 +1,28 @@
+server:
+  port: 8007
+
+spring:
+  application:
+    name: services-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/beauty
+    username: postgres
+    password: kimani89
+  driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl_auto: update
+    show_sql: true
+    database: postgresql
+
+eureka:
+  instance:
+    host: localhost
+
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+
+    service-url:
+      defaultZone: http://localhost:8000/eureka/

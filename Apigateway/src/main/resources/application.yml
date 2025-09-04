@@ -1,0 +1,18 @@
+server:
+  localLink: http://localhost:8001/
+  port: 8001
+
+spring:
+  application:
+    name: gateway-service
+
+
+eureka:
+  instance:
+    host: localhost
+
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8000/eureka/

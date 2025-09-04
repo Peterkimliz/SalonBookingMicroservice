@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="server" />
+        <module name="Apigateway" />
+        <module name="product" />
+        <module name="services" />
+        <module name="users" />
+      </profile>
+      <profile name="Annotation profile for bookings" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="bookings" />
+        <module name="barbsalon" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="booking" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Apigateway" options="-parameters" />
+      <module name="barbsalon" options="-parameters" />
+      <module name="booking" options="-parameters" />
+      <module name="bookings" options="-parameters" />
+      <module name="product" options="-parameters" />
+      <module name="server" options="-parameters" />
+      <module name="services" options="-parameters" />
+      <module name="users" options="-parameters" />
+    </option>
+  </component>
+</project>
