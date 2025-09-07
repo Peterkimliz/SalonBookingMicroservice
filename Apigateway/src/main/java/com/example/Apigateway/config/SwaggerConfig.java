@@ -14,12 +14,12 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPIDefinition(
         info = @Info(
                 contact = @Contact(
-                        name = "SalonMicroService",
+                        name = "GateMicroService",
                         email = ""
 
                 ),
-                description = "Open Api documentation for SalonMicroService",
-                title = "OpenApi SalonMicroService",
+                description = "Open Api documentation for GateMicroService",
+                title = "OpenApi GateMicroService",
                 version = "1.0"
         )
         , servers = {

@@ -3,7 +3,8 @@ package com.example.barbsalon.services.category;
 import com.example.barbsalon.dtos.ApiResponse;
 import com.example.barbsalon.dtos.category.CategoryRequest;
 import com.example.barbsalon.dtos.category.CategoryResponse;
-import com.example.barbsalon.exception.ItemFoundException;
+import com.example.barbsalon.exceptions.ItemExistsException;
+import com.example.barbsalon.exceptions.ItemNotFound;
 import com.example.barbsalon.mapper.category.CategoryMapper;
 import com.example.barbsalon.models.Category;
 import com.example.barbsalon.repository.CategoryRepository;
@@ -23,7 +24,7 @@ public class CategoryServiceImpl implements CategoryService {
     public ApiResponse<CategoryResponse> createCategory(CategoryRequest categoryRequest) {
         Optional<Category> categoryByName = categoryRepository.findByName(categoryRequest.name().toLowerCase());
         if (categoryByName.isPresent()) {
-            throw new ItemFoundException("category with name already exists");
+            throw new ItemExistsException("category with name already exists");
         }
         Category category = CategoryMapper.toCategory(categoryRequest);
         categoryRepository.save(category);
@@ -39,7 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public ApiResponse<CategoryResponse> getCategoryById(Long id) {
         CategoryResponse categoryResponse = categoryRepository.findById(id)
-                        .map(CategoryMapper::toCategoryResponse).orElseThrow(() -> new ItemFoundException("C"));
+                        .map(CategoryMapper::toCategoryResponse).orElseThrow(() -> new ItemNotFound("category with id not found"));
         return new ApiResponse<>(categoryResponse);
     }
 

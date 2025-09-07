@@ -1,6 +1,7 @@
 
 server:
-  port: 8006
+  localLink: http://localhost:${server.port}/
+  port: 8003
 
 spring:
   application:
