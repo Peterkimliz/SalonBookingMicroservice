@@ -1,16 +1,31 @@
 server:
-  localLink: http://localhost:${server.port}/
   port: 8001
+  appVersion: /api/v1
+  localLink: http://localhost:${server.port}
 
 spring:
   application:
     name: gateway-service
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discover:
+            locator:
+              enabled: true
+          routes:
+            - id: product-service
+              uri: lb:http://PRODUCT-SERVICE
+              predicates:
+                - Path=/api/v1/product/**
 
-
+            - id: salon-service
+              uri: lb:http://SALON-SERVICE
+              predicates:
+                  - Path=/api/v1/salon/**
 eureka:
   instance:
     host: localhost
-
   client:
     register-with-eureka: true
     fetch-registry: true

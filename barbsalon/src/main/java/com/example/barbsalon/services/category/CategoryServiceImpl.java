@@ -22,6 +22,9 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public ApiResponse<CategoryResponse> createCategory(CategoryRequest categoryRequest) {
+
+        System.out.println("cat is");
+        System.out.println(categoryRequest.name());
         Optional<Category> categoryByName = categoryRepository.findByName(categoryRequest.name().toLowerCase());
         if (categoryByName.isPresent()) {
             throw new ItemExistsException("category with name already exists");

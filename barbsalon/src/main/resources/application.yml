@@ -1,5 +1,5 @@
 server:
-  appVersion: api/v1
+  appVersion: /api/v1
   localLink: http://localhost:${server.port}/
   port: 8002
 

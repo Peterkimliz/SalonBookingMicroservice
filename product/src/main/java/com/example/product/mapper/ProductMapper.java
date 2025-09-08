@@ -26,7 +26,7 @@ public class ProductMapper {
         product.setName(productRequest.name());
         product.setPrice(productRequest.price());
         product.setDescription(productRequest.description());
-        product.setCreatedAt(LocalDateTime.now());
+        product.setCreatedAt(LocalDateTime.now());product.setImageUrl("hgqggyuu");
         product.setQuantity(productRequest.quantity());
         product.setSalonId(productRequest.salonId());
         return  product;

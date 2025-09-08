@@ -1,5 +1,5 @@
 server:
-  appVersion: api/v1
+  salonUrl: http://localhost:8002/
   localLink: http://localhost:${server.port}/
   port: 8004
 

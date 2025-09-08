@@ -1,9 +1,7 @@
 package com.example.product.services;
 
-import com.example.product.dtos.ApiResponse;
-import com.example.product.dtos.Pagination;
-import com.example.product.dtos.ProductRequest;
-import com.example.product.dtos.ProductResponse;
+import com.example.product.client.SalonClient;
+import com.example.product.dtos.*;
 import com.example.product.exceptions.ItemNotFound;
 import com.example.product.mapper.ProductMapper;
 import com.example.product.models.Product;
@@ -19,10 +17,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private SalonClient salonClient;
 
     @Override
     public ApiResponse<ProductResponse> createProduct(ProductRequest productRequest) {
-       Product product=ProductMapper.toProduct(productRequest);
+        ApiResponse<SalonReponse> salon = salonClient.getSalon(productRequest.salonId());
+
+        System.out.println("Salon is " +salon.getData().id());
+        Product product=ProductMapper.toProduct(productRequest);
+
        productRepository.save(product);
         return new ApiResponse<>(ProductMapper.toProductResponse(product));
     }

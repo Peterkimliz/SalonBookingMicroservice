@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Salon")
 @RestController
-@RequestMapping("${server.appVersion}/salon/")
+@RequestMapping("/api/v1/salon/")
 public class SalonController {
 
     @Autowired

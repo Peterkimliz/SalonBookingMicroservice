@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "Product")
 @RestController
-@RequestMapping("${server.appVersion}/product/")
+@RequestMapping("/api/v1/product/")
 public class ProductController {
 
     @Autowired
